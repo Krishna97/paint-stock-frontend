@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Paint, PaintResponse } from '../paint-response.interface';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardService {
-  private baseUrl = 'http://localhost:3100'; // Change this URL according to your NestJS backend
+  private baseUrl = environment.apiUrl; // Change this URL according to your NestJS backend
 
   constructor(private http: HttpClient) { }
 

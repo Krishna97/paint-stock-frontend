@@ -106,3 +106,8 @@
   .paint#paintAvailable {
     background-color: #90ee90;
   }
+
+  .error-snackbar {
+  background-color: #f44336; /* Red background for error notifications */
+  color: white; /* White text */
+}
