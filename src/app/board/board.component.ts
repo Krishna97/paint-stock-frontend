@@ -26,7 +26,12 @@ export class BoardComponent implements OnInit {
     private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.getPaints();
+    if(this.authService.getUserRoles() != undefined && this.authService.getUserRoles() != null){
+      this.getPaints();
+    }
+    if (!this.authService.isManager() && !this.authService.isPainter() && !this.authService.isAdmin() && !this.authService.isViewer()) {
+      this.notificationService.showError('Unauthorized access. You do not have an access to perform this action.');
+    }    
   }
 
   // Fetch paints data from the server
