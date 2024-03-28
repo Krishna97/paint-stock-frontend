@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'viaduct.proxy.rlwy.net:35134'
+  apiUrl: 'http://localhost:3100'
 };
 
 /*

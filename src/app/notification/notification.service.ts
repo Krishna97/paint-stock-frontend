@@ -9,10 +9,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationService {
   constructor(private snackBar: MatSnackBar) { }
 
+  /**
+   * Display an error message using MatSnackBar.
+   * @param message Error message to be displayed.
+   */
   showError(message: string): void {
-    this.openSnackBar(message, 'error-snackbar'); // Use 'error-snackbar' class for error notifications
+    this.openSnackBar(message, 'error-snackbar');
   }
 
+  // Open snackbar with specified message, panel class, and duration
   private openSnackBar(message: string, panelClass: string): void {
     this.snackBar.open(message, 'Close', {
       duration: 5000,
@@ -21,5 +26,5 @@ export class NotificationService {
       verticalPosition: 'top'
     });
   }
-  
+
 }
