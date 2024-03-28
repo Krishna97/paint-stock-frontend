@@ -32,6 +32,11 @@ Painter can view and update paint stock.<br />
 Viewr can view paint stock.<br />
 Admin can view paint stock along with managing roles of users.<br />
 
+# Live deployment URL with CI/CD
+
+[paint-stock-frontend.vercel.app](https://paint-stock-frontend.vercel.app)
+
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
