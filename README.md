@@ -1,3 +1,26 @@
+# Users data & credentials 
+
+userName = John
+password = john
+roles = Viewer
+
+userName = Jane
+password = jane
+roles = Manager, Painter
+
+userName = Chris
+password = chris
+roles = Painter
+
+userName = Tom
+password = tom
+roles = Painter
+
+userName = Adam
+password = adam
+roles = Admin
+
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
