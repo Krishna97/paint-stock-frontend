@@ -16,7 +16,8 @@
               <tr>
                 <td *ngFor="let role of roles">
                   <input type="checkbox" [checked]="isRoleChecked(user, role)"
-                    (change)="updateUserRole(user, role, $any($event.target)?.checked)">
+                    (change)="updateUserRole(user, role, $any($event.target)?.checked)"
+                    [disabled]="isCheckboxDisabled(role)">
                   <label>{{ role }}</label>
                 </td>
               </tr>

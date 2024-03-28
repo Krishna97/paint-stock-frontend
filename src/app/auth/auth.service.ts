@@ -52,4 +52,9 @@ export class AuthService {
       this.router.navigate(['/login']);
     });
   }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 }

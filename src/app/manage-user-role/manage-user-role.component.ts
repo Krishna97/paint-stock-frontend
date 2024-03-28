@@ -20,7 +20,7 @@ export class ManageUserRoleComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     this.getRoles();
-     // Check if the logged-in user is an admin, redirect and show error if not
+    // Check if the logged-in user is an admin, redirect and show error if not
     if (!this.authService.isAdmin()) {
       this.router.navigate(['/board']);
       this.notificationService.showError('Unauthorized access. You do not have an access.');
@@ -68,6 +68,11 @@ export class ManageUserRoleComponent implements OnInit {
   // Navigates back to the '/board' page
   back(): void {
     this.router.navigate(['/board']);
+  }
+
+  // Disable checkbox for admin role
+  isCheckboxDisabled(role: string): boolean {
+    return role === this.authService.RoleConst.Admin;
   }
 
 }
