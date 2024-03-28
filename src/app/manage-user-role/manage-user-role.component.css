@@ -30,4 +30,45 @@
       width: 100%; /* Make table full-width on small screens */
     }
   }
+
+  .kanban-heading {
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px 0;
+    background: linear-gradient(to right, #007bff, #00bfff);
+    color: #fff;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border: 2px solid #007bff;
+    transition: background 0.3s ease;
+  }
   
+  .kanban-heading:hover {
+    background: linear-gradient(to right, #00bfff, #007bff);
+  }
+
+  .back-container {
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* Distance from bottom of viewport */
+    right: 20px; /* Distance from right of viewport */
+}
+
+.back {
+    background: linear-gradient(to right, #007bff, #00bfff);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back:hover {
+    background: linear-gradient(to right, #00bfff, #007bff);
+}
+
+.manage-user-table {
+  margin-top: 20px; /* Add margin-top for space */
+}

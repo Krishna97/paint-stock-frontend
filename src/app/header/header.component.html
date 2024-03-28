@@ -1,0 +1,9 @@
+<header class="kanban-heading">
+  <h1>{{ pageTitle }}</h1>
+  <div class="container">
+    <span *ngIf="isAdmin">
+      <button class="manage-button" (click)="manage()">Manage Roles</button>
+    </span>
+    <button class="logout-button" (click)="logout()">Logout</button>
+  </div>
+</header>

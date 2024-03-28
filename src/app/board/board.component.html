@@ -1,38 +1,23 @@
-<!-- <div color="primary">Kanban Board</div>
-
-<div>
-  <div label="To Do">
-    <app-paint *ngFor="let paint of paints | filterByStatus:'todo'" [paint]="paint"></app-paint>
-  </div>
-  <div label="In Progress">
-    <app-paint *ngFor="let paint of paints | filterByStatus:'inprogress'" [paint]="paint"></app-paint>
-  </div>
-  <div label="Done">
-    <app-paint *ngFor="let paint of paints | filterByStatus:'done'" [paint]="paint"></app-paint>
-  </div>
-</div>
-
- -->
-
-
-
-<h1 class="kanban-heading">Kanban Board</h1>
+<app-header [pageTitle]="'Paint Stock Dashboard'"></app-header>
 <div class="kanban-board">
   <div class="column" id="available" (drop)="onDrop($event, 'available')" (dragover)="onDragOver($event)">
     <h2>Available</h2>
-    <div class="paint" id="paintAvailable" *ngFor="let paint of filterPaints('available')" draggable="true" (dragstart)="onDragStart($event, paint)">
+    <div class="paint" id="paintAvailable" *ngFor="let paint of filterPaints('available')" draggable="true"
+      (dragstart)="onDragStart($event, paint)">
       {{ paint.color }}
     </div>
   </div>
   <div class="column" id="runningLow" (drop)="onDrop($event, 'runningLow')" (dragover)="onDragOver($event)">
     <h2>Running low</h2>
-    <div class="paint" id="paintRunningLow" *ngFor="let paint of filterPaints('runningLow')" draggable="true" (dragstart)="onDragStart($event, paint)">
+    <div class="paint" id="paintRunningLow" *ngFor="let paint of filterPaints('runningLow')" draggable="true"
+      (dragstart)="onDragStart($event, paint)">
       {{ paint.color }}
     </div>
   </div>
   <div class="column" id="outOfStock" (drop)="onDrop($event, 'outOfStock')" (dragover)="onDragOver($event)">
     <h2>Out of stock</h2>
-    <div class="paint" id="paintOutOfStock" *ngFor="let paint of filterPaints('outOfStock')" draggable="true" (dragstart)="onDragStart($event, paint)">
+    <div class="paint" id="paintOutOfStock" *ngFor="let paint of filterPaints('outOfStock')" draggable="true"
+      (dragstart)="onDragStart($event, paint)">
       {{ paint.color }}
     </div>
   </div>

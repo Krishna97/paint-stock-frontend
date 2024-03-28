@@ -16,6 +16,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { HeaderComponent } from './header/header.component';
+import { UnauthorizedInterceptor } from './auth/auth.unauthorizedIntercepror';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { MatTableModule } from '@angular/material/table';
     BoardComponent,
     FilterByStatusPipe,
     LoginComponent,
-    ManageUserRoleComponent
+    ManageUserRoleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: UnauthorizedInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

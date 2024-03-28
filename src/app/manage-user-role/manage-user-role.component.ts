@@ -18,12 +18,11 @@ export class ManageUserRoleComponent implements OnInit {
     constructor(private router: Router, private authService: AuthService, private manageUserRoleService: ManageUserRoleService, private notificationService: NotificationService) { }
 
     ngOnInit(): void {
+      this.getUsers();
+      this.getRoles();
       if (!this.authService.isAdmin()) {
         this.router.navigate(['/board']);
         this.notificationService.showError('Unauthorized access. You do not have an access.');
-      } else{
-        this.getUsers();
-        this.getRoles();
       }
       
     }
@@ -38,6 +37,7 @@ export class ManageUserRoleComponent implements OnInit {
       // Call a method in UserService to fetch all roles
       this.manageUserRoleService.getAllRoles().subscribe((roles: string[]) => {
         this.roles = roles;
+        return roles;
       });
     }
 
@@ -61,6 +61,10 @@ export class ManageUserRoleComponent implements OnInit {
 
     isRoleChecked(user: User, role: string): boolean {
       return user.roles.includes(role);
+    }
+  
+    back(): void {
+      this.router.navigate(['/board']);
     }
   
   }

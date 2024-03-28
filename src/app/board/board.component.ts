@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 import { BoardService } from './board.service';
 import { Paint, PaintResponse } from '../paint-response.interface';
@@ -21,7 +20,7 @@ import { NotificationService } from '../notification/notification.service';
 })
 export class BoardComponent implements OnInit {
 
-  paints: Paint[] = []; 
+  paints: Paint[] = [];
 
   constructor(private authService: AuthService, private boardService: BoardService, private cdRef: ChangeDetectorRef,
     private notificationService: NotificationService) { }
@@ -30,7 +29,8 @@ export class BoardComponent implements OnInit {
     this.getPaints();
   }
 
-  getPaints(){
+  // Fetch paints data from the server
+  getPaints() {
     this.boardService.getPaints().subscribe((response: PaintResponse) => {
       this.paints = response.response; // Access the 'response' property
     }, (error) => {
@@ -38,14 +38,16 @@ export class BoardComponent implements OnInit {
     });
   }
 
-
+  // Handle drag start event
   onDragStart(event: DragEvent, paint: Paint) {
     event.dataTransfer?.setData('paint', JSON.stringify(paint));
-    console.log("Inside method" + "onDragStart " );
+    console.log("Inside method" + "onDragStart ");
   }
 
+  // Handle drop event
   onDrop(event: DragEvent, status: string) {
     event.preventDefault();
+    console.log('is manager: ', this.authService.isManager());
     if (this.authService.isManager() || this.authService.isPainter()) {
       const paint: Paint = JSON.parse(event.dataTransfer?.getData('paint') || '');
       paint.status = status;
@@ -57,22 +59,23 @@ export class BoardComponent implements OnInit {
     } else {
       this.notificationService.showError('Unauthorized access. You do not have an access to perform this action.');
     }
-    
+
   }
 
-
+  // Handle drag over event
   onDragOver(event: DragEvent) {
     event.preventDefault();
-    console.log("Inside method" + "onDragOver " );
+    console.log("Inside method" + "onDragOver ");
   }
 
+  // Filter paints based on status
   filterPaints(status: string): Paint[] {
-    if(this.paints != undefined){
+    if (this.paints != undefined) {
       return this.paints.filter(paint => paint.status === status);
-      console.log("Inside method" + " filterTasks" );
+      console.log("Inside method" + " filterTasks");
     }
     return [];
-    
+
   }
 
 }
