@@ -71,8 +71,8 @@ export class ManageUserRoleComponent implements OnInit {
   }
 
   // Disable checkbox for admin role
-  isCheckboxDisabled(role: string): boolean {
-    return role === this.authService.RoleConst.Admin;
+  isCheckboxDisabled(user: User, role: string): boolean {
+    return (role === this.authService.RoleConst.Admin && user.userName === 'Adam');
   }
 
 }
