@@ -41,19 +41,16 @@ export class BoardComponent implements OnInit {
   // Handle drag start event
   onDragStart(event: DragEvent, paint: Paint) {
     event.dataTransfer?.setData('paint', JSON.stringify(paint));
-    console.log("Inside method" + "onDragStart ");
   }
 
   // Handle drop event
   onDrop(event: DragEvent, status: string) {
     event.preventDefault();
-    console.log('is manager: ', this.authService.isManager());
     if (this.authService.isManager() || this.authService.isPainter()) {
       const paint: Paint = JSON.parse(event.dataTransfer?.getData('paint') || '');
       paint.status = status;
 
       this.boardService.changeStatus(paint).subscribe((response: any) => {
-        console.log(response);
         this.getPaints();
       })
     } else {
@@ -65,14 +62,12 @@ export class BoardComponent implements OnInit {
   // Handle drag over event
   onDragOver(event: DragEvent) {
     event.preventDefault();
-    console.log("Inside method" + "onDragOver ");
   }
 
   // Filter paints based on status
   filterPaints(status: string): Paint[] {
     if (this.paints != undefined) {
       return this.paints.filter(paint => paint.status === status);
-      console.log("Inside method" + " filterTasks");
     }
     return [];
 

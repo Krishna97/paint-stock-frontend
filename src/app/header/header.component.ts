@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
 
   // Update isAdmin property based on user role
   ngOnInit(): void {
-    console.log(this.authService.isAdmin());
     this.isAdmin = this.authService.isAdmin()
   }
 

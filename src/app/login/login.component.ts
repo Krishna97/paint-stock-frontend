@@ -24,10 +24,6 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     // Add login logic here
-    console.log('Username:', this.username);
-    console.log('Password:', this.password);
-
-    console.log('length ' + localStorage.length);
     if (localStorage.length <= 0) {
       this.router.navigate(['/login']);
     }
@@ -37,12 +33,10 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(this.username, this.password).subscribe(response => {
       // Handle successful login
-      console.log('Login successful:', response);
       if (response.token != undefined) {
         // Extract token from response
         const token = response.token;
 
-        console.log('token: ', token)
         localStorage.setItem('token', token);
 
         if (response.user != undefined && response.user.roles != undefined) {
