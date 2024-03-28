@@ -11,13 +11,19 @@ import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ManageUserRoleComponent } from './manage-user-role/manage-user-role.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     FilterByStatusPipe,
-    LoginComponent
+    LoginComponent,
+    ManageUserRoleComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTabsModule,
     HttpClientModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
         console.log('token: ', token)
         localStorage.setItem('token', token);
 
-        if(response.user != undefined && response.user.role != undefined){
-          localStorage.setItem('role', response.user.role);
+        if(response.user != undefined && response.user.roles != undefined){
+          localStorage.setItem('roles', response.user.roles);
         }
 
         

@@ -15,27 +15,27 @@ export class AuthService {
     }
   constructor() { }
 
-  getUserRole(): string | null {
-    return localStorage.getItem('role');
+  getUserRoles(): string | null {
+    return localStorage.getItem('roles');
   }
 
   isPainter(): boolean {
-    const role = this.getUserRole();
-    return role === this.Role.Painter;
+    const roles = this.getUserRoles();
+    return roles?.includes(this.Role.Painter) ? true : false;
   }
 
   isManager(): boolean {
-    const role = this.getUserRole();
+    const role = this.getUserRoles();
     return role === this.Role.Manager;
   }
 
   isViewer(): boolean {
-    const role = this.getUserRole();
+    const role = this.getUserRoles();
     return role === this.Role.Viewer;
   }
 
   isAdmin(): boolean {
-    const role = this.getUserRole();
+    const role = this.getUserRoles();
     return role === this.Role.Admin;
   }
 
