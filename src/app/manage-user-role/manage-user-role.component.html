@@ -1,34 +1,32 @@
 <app-header [pageTitle]="'Manage User Roles'"></app-header>
 <div class="manage-user-table">
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Roles</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.userName }}</td>
-          <td>
-            <table>
-              <tbody>
-                <tr>
-                  <td *ngFor="let role of roles">
-                    <input type="checkbox" [checked]="isRoleChecked(user, role)" (change)="updateUserRole(user, role, $any($event.target)?.checked)">
-                    <label>{{ role }}</label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="back-container">
-    <button class="back" (click)="back()">Back</button>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Roles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userName }}</td>
+        <td>
+          <table>
+            <tbody>
+              <tr>
+                <td *ngFor="let role of roles">
+                  <input type="checkbox" [checked]="isRoleChecked(user, role)"
+                    (change)="updateUserRole(user, role, $any($event.target)?.checked)">
+                  <label>{{ role }}</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-  
-  
+<div class="back-container">
+  <button class="back" (click)="back()">Back</button>
+</div>

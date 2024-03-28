@@ -9,11 +9,12 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  private baseUrl = environment.apiUrl; // Update with your NestJS backend URL
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
+  //Login in the application
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/auth/login`, { 'userName':username, 'password':password });
+    return this.http.post<any>(`${this.baseUrl}/auth/login`, { 'userName': username, 'password': password });
   }
 }

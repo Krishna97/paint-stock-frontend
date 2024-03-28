@@ -1,18 +1,17 @@
 <div class="overlay">
-    <div class="login-container">
-      <h2>Login</h2>
-      <form (ngSubmit)="login()">
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" [(ngModel)]="username" required>
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" [(ngModel)]="password" required>
-        </div>
-        <button type="submit">Login</button>
-        <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
-      </form>
-    </div>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required>
+      </div>
+      <button type="submit">Login</button>
+      <div *ngIf="loginError" class="error-message">{{ loginError }}</div>
+    </form>
+  </div>
 </div>
-  

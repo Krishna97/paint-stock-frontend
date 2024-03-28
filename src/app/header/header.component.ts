@@ -9,18 +9,22 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  // Input property to receive the page title from parent component
   @Input() pageTitle: string | undefined;
 
   constructor(private authService: AuthService, private router: Router) { }
   isAdmin = false;
+
+  // Update isAdmin property based on user role
   ngOnInit(): void {
-    console.log ( this.authService.isAdmin());
-    this.isAdmin = this.authService.isAdmin() 
+    console.log(this.authService.isAdmin());
+    this.isAdmin = this.authService.isAdmin()
   }
 
+  // Navigate to the login page after logout
   logout(): void {
-    this.authService.logout(); // Call the logout method from AuthService to log out the user
-    this.router.navigate(['/login']); // Navigate to the login page after logout
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   // Navigate to the manage roles page

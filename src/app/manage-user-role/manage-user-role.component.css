@@ -1,74 +1,70 @@
-/* manage-user-role.component.css */
-
-/* Styles only tables within the .manage-user-table container */
 .manage-user-table table {
-    margin: 0 auto; /* Center horizontally */
-    border-collapse: collapse;
-    width: 80%; /* Adjust width as needed */
-    max-width: 800px; /* Maximum width */
-  }
-  
-  .manage-user-table th, .manage-user-table td {
-    padding: 10px; /* Add padding */
-    border: 1px solid #ddd; /* Add border */
-    text-align: left; /* Align text to left */
-  }
-  
-  .manage-user-table th {
-    background-color: #f2f2f2; /* Gray background color for headers */
-    text-align: center;
-  }
-  
-  /* Style checkboxes */
-  .manage-user-table input[type="checkbox"] {
-    margin-right: 5px; /* Add spacing between checkbox and label */
-  }
-  
-  /* Responsive adjustments */
-  @media screen and (max-width: 600px) {
-    .manage-user-table table {
-      width: 100%; /* Make table full-width on small screens */
-    }
-  }
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 800px;
+}
 
-  .kanban-heading {
-    text-align: center;
-    font-size: 2rem;
-    padding: 20px 0;
-    background: linear-gradient(to right, #007bff, #00bfff);
-    color: #fff;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    border: 2px solid #007bff;
-    transition: background 0.3s ease;
-  }
-  
-  .kanban-heading:hover {
-    background: linear-gradient(to right, #00bfff, #007bff);
-  }
+.manage-user-table th,
+.manage-user-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
 
-  .back-container {
-    position: fixed; /* Fixed position */
-    bottom: 20px; /* Distance from bottom of viewport */
-    right: 20px; /* Distance from right of viewport */
+.manage-user-table th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.manage-user-table input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .manage-user-table table {
+    width: 100%;
+  }
+}
+
+.kanban-heading {
+  text-align: center;
+  font-size: 2rem;
+  padding: 20px 0;
+  background: linear-gradient(to right, #007bff, #00bfff);
+  color: #fff;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border: 2px solid #007bff;
+  transition: background 0.3s ease;
+}
+
+.kanban-heading:hover {
+  background: linear-gradient(to right, #00bfff, #007bff);
+}
+
+.back-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 .back {
-    background: linear-gradient(to right, #007bff, #00bfff);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background: linear-gradient(to right, #007bff, #00bfff);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .back:hover {
-    background: linear-gradient(to right, #00bfff, #007bff);
+  background: linear-gradient(to right, #00bfff, #007bff);
 }
 
 .manage-user-table {
-  margin-top: 20px; /* Add margin-top for space */
+  margin-top: 20px;
 }

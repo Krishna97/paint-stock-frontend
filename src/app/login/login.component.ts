@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
     console.log('Username:', this.username);
     console.log('Password:', this.password);
 
-    console.log('length '+localStorage.length);
-        if (localStorage.length<=0) {
-          this.router.navigate(['/login']);
-        }
+    console.log('length ' + localStorage.length);
+    if (localStorage.length <= 0) {
+      this.router.navigate(['/login']);
+    }
 
     //Reset error
     this.loginError = '';
@@ -38,20 +38,20 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.username, this.password).subscribe(response => {
       // Handle successful login
       console.log('Login successful:', response);
-      if(response.token != undefined){
-         // Extract token from response
+      if (response.token != undefined) {
+        // Extract token from response
         const token = response.token;
-        
+
         console.log('token: ', token)
         localStorage.setItem('token', token);
 
-        if(response.user != undefined && response.user.roles != undefined){
+        if (response.user != undefined && response.user.roles != undefined) {
           localStorage.setItem('roles', response.user.roles);
         }
-        
-        this.router.navigate(['/board']); 
+
+        this.router.navigate(['/board']);
       }
-     
+
     }, error => {
       // Handle login error
       console.error('Login failed:', error);
